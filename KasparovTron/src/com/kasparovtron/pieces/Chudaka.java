@@ -1,6 +1,6 @@
 package com.kasparovtron.pieces;
 
-public class Chudaka extends Piece {
+public class Chudaka extends Piece implements CanBlast {
 
 	public Chudaka(String inputColor, int row, int col) {
 		super(inputColor, row, col);
@@ -42,14 +42,43 @@ public class Chudaka extends Piece {
 
 	}
 
+	private boolean checkAttack(int moveRow, int moveCol) {
+		if (checkBounds(moveRow, moveCol)) {
+			int moveRowCoeficient = (this.row - moveRow);
+			int moveColCoeficient = (this.col - moveCol);
+
+			if (Math.abs(moveRowCoeficient) == 2) {
+				// ако абсолютната стоитнос на rowCoef е 2 ще провери дали colCoef е 1
+				if (Math.abs(moveColCoeficient) == 1) {
+					// тоест се движим по ред
+					return true;
+				}
+			}
+			if (Math.abs(moveRowCoeficient) == 2 && moveCol == this.col) {
+				return true;
+			}
+
+		}
+		return false;
+	}
+
 	public void attack(int attackRow, int attackCol) {
 		// to do attack restrictions
+		if (checkAttack(attackRow, attackCol)) {
+			blast(attackRow, attackCol);
+		}
 	}
 
 	@Override
 	public String getName() {
 		String name = "Chudaka";
 		return name;
+	}
+
+	@Override
+	public void blast(int row, int col) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

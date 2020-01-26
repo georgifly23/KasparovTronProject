@@ -46,7 +46,8 @@ public class Rook extends Piece {
 	}
 
 	public void attack(int attackRow, int attackCol) {
-
+		this.row = attackRow;
+		this.col = attackCol;
 	}
 
 	@Override

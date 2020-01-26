@@ -37,7 +37,7 @@ public class Knight extends Piece {
 	}
 
 	public boolean checkBounds(int moveRow, int moveCol) {
-
+ 
 		boolean checkRowBound = (moveRow >= 0 && moveRow <= 9);
 		boolean checkColBound = (moveCol >= 0 && moveCol <= 9);
 
@@ -55,7 +55,8 @@ public class Knight extends Piece {
 	}
 
 	public void attack(int attackRow, int attackCol) {
-
+		this.row = attackRow;
+		this.col = attackCol;
 	}
 
 	@Override

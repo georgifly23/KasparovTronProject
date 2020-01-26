@@ -43,10 +43,25 @@ public class Pawn extends Piece {
 		}
 
 	}
-
+	private boolean checkAttack(int moveRow , int moveCol) {
+	if(checkBounds(moveRow, moveCol)) {
+		int moveRowCoeficient = (this.row - moveRow);
+		int moveColCoeficient = (this.col - moveCol);
+		
+		boolean isRowMovementPossible = (Math.abs(moveRowCoeficient) == 1);
+		boolean isColMovementPossible = (Math.abs(moveColCoeficient) == 1);
+		
+		return isRowMovementPossible && isColMovementPossible;
+		
+	}
+	return false;
+	}
 	public void attack(int attackRow, int attackCol) {
 		// to do attack restrictions
-
+		if (checkAttack(attackRow, attackCol)) {
+			this.row = attackRow;
+			this.col = attackCol;
+		}
 	}
 
 	@Override
