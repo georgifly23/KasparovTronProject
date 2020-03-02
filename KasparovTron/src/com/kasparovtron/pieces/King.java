@@ -64,4 +64,5 @@ public class King extends Piece {
 		return name;
 	}
 
+	
 }

@@ -64,4 +64,6 @@ public class Knight extends Piece {
 		String name = "Knight";
 		return name;
 	}
+
+	
 }

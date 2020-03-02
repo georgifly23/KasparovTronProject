@@ -70,4 +70,6 @@ public class Pawn extends Piece {
 		return name;
 	}
 
+
+
 }

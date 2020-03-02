@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 import com.kasparovtron.config.PieceColor;
 import com.kasparovtron.pieces.*;
 import com.kasparovtron.tests.*;
@@ -50,20 +49,29 @@ public class Application {
 
 	}
 
+	public static int getScore(Piece[] pieces) {
+		int score = 0;
+		for (int i=0;i<pieces.length-3;i++) {
+			score += pieces[i].getId();
+		}
+		return score;
+		
+	}
+	
 	public static void turn() {
 
 		// 1. Arrange
 		while (true) {
 			Scanner Movement = new Scanner(System.in);
 			if (whoTurnIs) {
-				System.out.println("White Turn");
+				System.out.println("White Turn	Score is: " + getScore(whitePieces));
 				for (int i = 0; i < (whitePieces.length) - 3; i++) {
 					System.out.print(i + " " + whitePieces[i].getName() + " " + whitePieces[i].getPosition()[0] + ":");
 					System.out.println(whitePieces[i].getPosition()[1]);
 
 				}
 			} else {
-				System.out.println("Black Turn");
+				System.out.println("Black Turn	Score is: " + getScore(blackPieces));
 				for (int i = 0; i < (blackPieces.length) - 3; i++) {
 					System.out.print(i + " " + blackPieces[i].getName() + " " + blackPieces[i].getPosition()[0] + ":");
 					System.out.println(blackPieces[i].getPosition()[1]);
@@ -81,17 +89,22 @@ public class Application {
 				System.out.print("You moved " + whitePieces[pieceNumber].getName() + " to : "
 						+ whitePieces[pieceNumber].getPosition()[0] + ":");
 				System.out.println(whitePieces[pieceNumber].getPosition()[1]);
+				System.out.println();
 			} else {
 				blackPieces[pieceNumber].move(currentRow, currentCol);
 				System.out.print("You moved " + blackPieces[pieceNumber].getName() + " to : "
 						+ blackPieces[pieceNumber].getPosition()[0] + ":");
 				System.out.println(blackPieces[pieceNumber].getPosition()[1]);
+				System.out.println();
 			}
 			whoTurnIs = !whoTurnIs;
 		}
 
 	}
-
+	public static int getScore() {
+		 
+	}
+	
 	public static void main(String[] args) {
 
 		// How to restrict the input parameter.
@@ -105,19 +118,27 @@ public class Application {
 		// KingTest.run();
 		// QueenTest.run();
 		// ChudakaTest.run();
-		createPiece();
-		turn();
-
+		
+		 createPiece(); 
+		 turn();
+		
 		/*
 		 * Pawn p = new Pawn(PieceColor.BLACK, 1 ,0); if (p instanceof Pawn) {
 		 * System.out.println("Yes"); } if (p instanceof Piece) {
 		 * System.out.println("Yes"); } if (p instanceof Object) {
 		 * System.out.println("Yes"); }
 		 */
+		
+		/*Scanner scannerInstance = new Scanner(System.in);
+		
+		System.out.println("Hello Kasparov tron Masters");
+		while(true) {
+			GameBoard.render();*/
+		}
 
 		// System.out.println(p.color);
 		// System.out.println(p.power);
 		// System.out.println(p.id);
 	}
 
-}
+

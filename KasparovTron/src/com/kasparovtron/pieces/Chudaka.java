@@ -77,8 +77,9 @@ public class Chudaka extends Piece implements CanBlast {
 
 	@Override
 	public void blast(int row, int col) {
-		// TODO Auto-generated method stub
 
 	}
+
+
 
 }

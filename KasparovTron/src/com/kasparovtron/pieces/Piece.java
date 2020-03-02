@@ -7,7 +7,7 @@ public abstract class Piece {
 	public int id;
 	public int row;
 	public int col;
-
+ 
 	public Piece(String inputColor, int row, int col) {
 		this.color = inputColor;
 		this.row = row;
@@ -23,6 +23,10 @@ public abstract class Piece {
 	}
 
 	public abstract String getName();
+	
+	public int getId(){
+		return id;
+	}
 
 	public abstract void move(int moveRow, int moveCol);
 
